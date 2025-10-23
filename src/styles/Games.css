@@ -1,0 +1,306 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: hsl(271, 84%, 88%);
+    min-height: 100vh;
+}
+
+.game-title {
+    font-size: 3rem;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.game-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 600px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgb(197, 142, 252);
+    border-radius: 6px;
+    color: white;
+}
+
+.score-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score {
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #891ea3, #ac19af);
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.game-over, .game-won {
+    font-weight: bold;
+    color: red;
+}
+
+.game-won {
+    color: green;
+}
+
+.controls {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #891ea3, #ac19af);
+    border-radius: 20px;
+}
+
+.size-controls select {
+    padding: 4px;
+    /* border-radius: 3px; */
+    border: none;
+}
+
+.restart-btn {
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #891ea3, #ac19af);
+    border-radius: 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    width: 120px;
+}
+
+.restart-btn:hover {
+    background: linear-gradient(135deg, #d57ef7, #de5af8);
+}
+
+/* .instructions {
+    font-size: 0.8rem;
+    text-align: center;
+    max-width: 150px;
+} */
+
+.game-board {
+    background: rgb(197, 142, 252);
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.board-row {
+    display: flex;
+}
+
+.tile {
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    transition: all 0.1s ease;
+}
+
+.tile-empty {
+    background: rgba(236, 185, 246, 0.646);
+}
+
+.tile-2 { background: #ef70bc; color: white }
+.tile-4 { background: #a239b2; color: white }
+.tile-8 { background: #cd256b; color: white; }
+.tile-16 { background: #9c72ff; color: white; }
+.tile-32 { background: #db1247; color: white; }
+.tile-64 { background: #090038; color: white; }
+.tile-128 { background: #591919; color: white; }
+.tile-256 { background: #191cc5; color: white; }
+.tile-512 { background: #52033a; color: white; }
+.tile-1024 { background: #4e3b84; color: white; }
+.tile-2048 { background: #cc00ff; color: white; }
+
+.mobile-controls {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.mobile-controls button {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    background: plum;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.loading {
+    font-size: 1.5rem;
+    color: gray;
+}
+
+@media (max-width: 768px) {
+    .game-controls {
+        flex-direction: column;
+        width: 300px;
+        gap: 15px;
+    }
+    
+    .tile {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .mobile-controls {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    .tile {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .game-board {
+        padding: 5px;
+    }
+}
+/* Tips Button */
+.instructions-tip {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.tip-btn {
+    background: linear-gradient(135deg, #891ea3, #ac19af);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    /* width: 120px; */
+}
+
+.tip-btn:hover {
+    background: linear-gradient(135deg, #d57ef7, #de5af8);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.tip-btn:active {
+    transform: translateY(0);
+}
+
+.instructions-popup {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    color: gray;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid #dd85f8;
+    z-index: 1000;
+    margin-top: 10px;
+    min-width: 200px;
+    animation: fadeIn 0.3s ease;
+}
+
+.instructions-popup::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #dd85f8;
+}
+
+.instructions-popup::after {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+}
+
+.instructions-popup p {
+    margin: 8px 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-align: center;
+    font-weight: bold;
+    color: grey;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .instructions-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        max-width: 300px;
+        margin: 0;
+    }
+    
+    .instructions-popup::before,
+    .instructions-popup::after {
+        display: none;
+    }
+    
+    .tip-btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
+.instructions-popup h4 {
+    margin: 0 0 10px 0;
+    color: black;
+    text-align: center;
+    font-size: 1.1rem;
+}
+.right-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px; 
+}
