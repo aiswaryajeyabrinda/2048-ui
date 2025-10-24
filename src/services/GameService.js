@@ -1,4 +1,5 @@
-const API_BASE = 'http://localhost:8080/api/2048';
+// const API_BASE = 'http://localhost:8080/api/2048';
+const API_BASE = 'https://web-production-45b5.up.railway.app/api/2048';
 
 export const GameService = {
     startGame: async (size = 4) => {
